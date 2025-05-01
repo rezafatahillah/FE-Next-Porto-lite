@@ -1,0 +1,10 @@
+import { InferType, number, object, string } from "yup";
+
+// ----------------------------------------------------------------------
+
+export const DegreeCreateSchema = object().shape({
+  name: string().required("Name is required"),
+  picture_id : number().optional(),
+});
+
+export interface IDegreeCreateSchema extends InferType<typeof DegreeCreateSchema> {}

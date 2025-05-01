@@ -1,0 +1,43 @@
+import { Iconify } from "@/templates-ui/components/iconify";
+import { RouterLink } from "@/templates-ui/routes/components";
+import type { LinkProps } from "@mui/material/Link";
+
+import Link from "@mui/material/Link";
+
+// ----------------------------------------------------------------------
+
+type FormReturnLinkProps = LinkProps & {
+  href: string;
+  icon?: React.ReactNode;
+  label?: React.ReactNode;
+};
+
+export function FormReturnLink({
+  sx,
+  href,
+  children,
+  label,
+  icon,
+  ...other
+}: FormReturnLinkProps) {
+  return (
+    <Link
+      component={RouterLink}
+      href={href}
+      color="inherit"
+      variant="subtitle2"
+      sx={{
+        mt: 3,
+        gap: 0.5,
+        mx: "auto",
+        alignItems: "center",
+        display: "inline-flex",
+        ...sx,
+      }}
+      {...other}
+    >
+      {icon || <Iconify width={16} icon="eva:arrow-ios-back-fill" />}
+      {label || "Return to sign in"}
+    </Link>
+  );
+}
